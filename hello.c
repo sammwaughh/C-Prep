@@ -4,6 +4,7 @@
 
 int main() {
     printf("Hello World!\n");
+    printf("VSCode configured pretty well\n");
     return 0;
 }
 
