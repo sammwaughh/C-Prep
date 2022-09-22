@@ -1,26 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int b, t, n;
-    b = 0;
-    t = 0;
-    n = 0;
     int c = getchar();
+    int wasBlank = 0;
     while (c != EOF) {
-        if (c == '\t') {
-            ++t;
+        if (wasBlank) {
+            if (c == ' ') {
+                ;
+            } else {
+                putchar(c);
+            }
+        } else {
+            putchar(c);
         }
-        if (c == '\n') {
-            ++n;
-        }
+
         if (c == ' ') {
-            ++b;
+            wasBlank = 1;
+        } else {
+            wasBlank = 0;
         }
         c = getchar();
-        //printf("ran")
     }
-    printf("Tabs: %d\n", t);
-    printf("New Lines: %d\n", n);
-    printf("Blanks: %d\n", b);
     return 0;
 }
