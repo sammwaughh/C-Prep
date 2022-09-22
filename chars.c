@@ -2,23 +2,22 @@
 
 int main() {
     int c = getchar();
-    int wasBlank = 0;
     while (c != EOF) {
-        if (wasBlank) {
-            if (c == ' ') {
-                ;
-            } else {
-                putchar(c);
-            }
+        if (c == '\t') {
+            putchar('\\');
+            putchar('t');
+        }
+        else if (c == '\b') {
+            putchar('\\');
+            putchar('b');
+        }
+        else if (c == '\\') {
+            putchar('\\');
+            putchar('\\');
         } else {
             putchar(c);
         }
-
-        if (c == ' ') {
-            wasBlank = 1;
-        } else {
-            wasBlank = 0;
-        }
+        
         c = getchar();
     }
     return 0;
