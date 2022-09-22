@@ -6,3 +6,5 @@ int main() {
     printf("Hello World!\n");
     return 0;
 }
+
+/* I think I've setup VSCode pretty well */
