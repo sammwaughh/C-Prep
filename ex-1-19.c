@@ -1,14 +1,14 @@
 #include <stdio.h>
-#define MAXLINE 40
+#define MAXLINE 1000
 
 int getline2(char line[], int maxline);
 void reverse(char s[]);
 
 int main() {
-    int len;
     char line[MAXLINE];
-    while ((len = getline2(line, MAXLINE)) > 0) {
-        
+    while (getline2(line, MAXLINE) > 0) {
+        reverse(line);
+        printf("%s\n", line);
     }
     return 0;
 }
@@ -30,6 +30,22 @@ int getline2(char s[], int lim) {
     return i;
 }
 
+// You can swap characters in place using a temporary char variable
+// instead of making a new string and then copying it over the old one
 void reverse(char s[]) {
-    
+    int i;
+    i = 0;
+    while (s[i] != '\n') {
+        ++i;
+    }
+    char reversed[i];
+    --i;
+    int length = i;
+    while (i >= 0) {
+        reversed[length - i] = s[i];
+        --i;
+    }
+    for (int j = 0; j <= length; ++j) {
+        s[j] = reversed[j];
+    }
 }
