@@ -8,6 +8,7 @@ int main() {
     int c = getchar();
     while (c != EOF) {
         ++characters[c];
+        c = getchar();
     }
     int size;
     for (int i = 1; i < 128; ++i) {
