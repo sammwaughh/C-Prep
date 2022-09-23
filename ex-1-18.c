@@ -1,17 +1,21 @@
 #include <stdio.h>
-#define LIMIT 20
-#define MAXLINE 100
+#define MAXLINE 40
 
 int getline2(char line[], int maxline);
-void copy(char to[], char from[]);
 
 int main() {
     int len;
     char line[MAXLINE];
     while ((len = getline2(line, MAXLINE)) > 0) {
-        if (len > LIMIT) {
-            printf("%s\n", line);
+        int i = len-2;
+        char end = line[i];
+        while (end == ' ' || end == '\t') {
+            --i;
+            end = line[i];
         }
+        line[i+1] = '\n';
+        line[i+2] = '\0';
+        printf("%s\n", line);
     }
     return 0;
 }
@@ -31,12 +35,4 @@ int getline2(char s[], int lim) {
     }
     s[i] = '\0';
     return i;
-}
-
-void copy(char to[], char from[]) {
-    int i;
-    i = 0;
-    while ((to[i] = from[i]) != '\0') {
-        ++i;
-    }
 }
