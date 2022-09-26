@@ -1,11 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    
-    int i = 0;
-    while (i <= 10) {
-        printf("%d\n", i);
-        i++;
-    }   
+    int n = 257;
+    n = n & 0177;
+    printf("n: %d\n", n);
+    printf("%d\n", 0177);
     return 0;
 }
