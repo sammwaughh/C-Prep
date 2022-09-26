@@ -23,6 +23,9 @@ unsigned invert(unsigned x, int p, int n) {
 
     */
     return (x & (~(~(~0 << n) << (p+1-n)))) | (((~x >> (p+1-n)) & ~(~0 << n)) << (p+1-n));
+
+    // Alternative approach is more efficient and uses the ^ (X0R) operator
+    // return x ^ (~(~0 << n) << (p+1-n))
 }
 
 
