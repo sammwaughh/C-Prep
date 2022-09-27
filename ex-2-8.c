@@ -28,7 +28,11 @@ z << (32-n)
 
 unsigned rightrot(unsigned x, int n) {
     n = n % 32;
-    return (x >> n) | ((~(~0 << n) & x) << (32-n));
+    if (n == 0) {
+        return x;
+    } else {
+        return (x >> n) | ((~(~0 << n) & x) << (32-n));
+    }
 }
 
 void printBinary(unsigned n) {
