@@ -2,10 +2,11 @@
 
 unsigned rightrot(unsigned x, int n);
 void printBinary(unsigned n);
+int wordlength();
 
 int main() {
     unsigned x = 28;
-    unsigned y = rightrot(x, 65);
+    unsigned y = rightrot(x, 4);
     printBinary(x);
     printBinary(y);
     return 0;
@@ -27,26 +28,34 @@ z << (32-n)
 */
 
 unsigned rightrot(unsigned x, int n) {
-    n = n % 32;
-    return (x >> n) | ((~(~0 << n) & x) << (32-n));
+    int w = wordlength();
+    n = n % w;
+    return (x >> n) | ((~(~0 << n) & x) << (w-n));
 }
 
 void printBinary(unsigned n) {
-    int binary[32];
-    for (int i = 0; i < 31; i++) {
+    int w = wordlength();
+    int binary[w];
+    for (int i = 0; i < w-1; i++) {
         binary[i] = 0;
     }
-    for (int i = 31; n > 0; i--) {
+    for (int i = w-1; n > 0; i--) {
         binary[i] = n%2;
         n=n/2;
     }
     printf("Binary version: ");
-    for (int i = 0; i < 32; i++) {
+    for (int i = 0; i < w; i++) {
         printf("%d", binary[i]);
     }
     printf("\n");
 }
 
-
-
+int wordlength() {
+    unsigned v = (unsigned) ~0;
+    int i;
+    for (i = 1; (v >>= 1) > 0; i++) {
+        ;
+    }
+    return i;
+}
 
