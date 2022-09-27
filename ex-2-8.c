@@ -5,7 +5,7 @@ void printBinary(unsigned n);
 
 int main() {
     unsigned x = 28;
-    unsigned y = rightrot(x, 36);
+    unsigned y = rightrot(x, 65);
     printBinary(x);
     printBinary(y);
     return 0;
@@ -28,11 +28,7 @@ z << (32-n)
 
 unsigned rightrot(unsigned x, int n) {
     n = n % 32;
-    if (n == 0) {
-        return x;
-    } else {
-        return (x >> n) | ((~(~0 << n) & x) << (32-n));
-    }
+    return (x >> n) | ((~(~0 << n) & x) << (32-n));
 }
 
 void printBinary(unsigned n) {
