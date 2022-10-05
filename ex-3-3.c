@@ -3,13 +3,14 @@
 void expand(char s1[], char s2[]);
 
 int main() {
-    char test1[] = "Hello -C-G World a--z w-Z a-d";
+    char test1[] = "Hello a-d-g World";
     char test2[1000];
     expand(test1, test2);
     printf("%s\n", test2);
     return 0;
 }
 
+// Need to fix a-b-c case
 void expand(char s1[], char s2[]) {
     // We want to expand all sort of short hand notation.
     // Let's start by expanding "a-z" to the string "abc...xyz"
