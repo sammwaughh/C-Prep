@@ -3,7 +3,7 @@
 void expand(char s1[], char s2[]);
 
 int main() {
-    char test1[] = "Hello c-h World";
+    char test1[] = "Hello -C-G World a--z w-Z a-d";
     char test2[1000];
     expand(test1, test2);
     printf("%s\n", test2);
@@ -21,10 +21,10 @@ void expand(char s1[], char s2[]) {
         char c0 = s1[i];
         char c1 = s1[i+1];
         char c2 = s1[i+2];
-        printf("c0: %c\tc1: %c\tc2: %c\n", c0, c1, c2);
-        if ((c1 == '-') && (('a' - c0) <= 0) && (('z' - c0) > 0) && (('a' - c2) <= 0) && (('z' - c2) > 0)) {
+        //printf("c0: %c\tc1: %c\tc2: %c\n", c0, c1, c2);
+        if ((c1 == '-') && (((('a' - c0) <= 0) && (('z' - c0) >= 0) && (('a' - c2) <= 0) && (('z' - c2) >= 0)) || (((('A' - c0) <= 0) && (('Z' - c0) >= 0) && (('A' - c2) <= 0) && (('Z' - c2) >= 0))))) {
             // c0 is between a and z, c1 is a dash, c2 is between a and z
-            printf("HI\n");
+            //printf("HI\n");
             char k = c0;
             while (k != c2) {
                 s2[j] = k;
